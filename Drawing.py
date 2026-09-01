@@ -22,7 +22,7 @@ cap = cv2.VideoCapture(0)
 if not cap.isOpened():
     print("Error In Connect To WebCam")
     exit()
-
+# starting Script
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -58,18 +58,12 @@ while cap.isOpened():
 
             list_erase.append(sqrt_landT - sqrt_landD)
 
-        sqrt_7_0 = math.sqrt((ln[4][0] - ln[0][0]) **
-                             2 + (ln[4][1] - ln[0][1]) ** 2)
-        sqrt_12_0 = math.sqrt((ln[6][0] - ln[0][0]) **
-                              2 + (ln[6][1] - ln[0][1]) ** 2)
-        sqrt_4_17 = math.sqrt((ln[3][0] - ln[7][0]) **
-                              2 + (ln[3][1] - ln[7][1]) ** 2)
-        sqrt_2_17 = math.sqrt((ln[1][0] - ln[7][0]) **
-                              2 + (ln[1][1] - ln[7][1]) ** 2)
-        sqrt_12_4 = math.sqrt((ln[6][0] - ln[3][0]) **
-                              2 + (ln[6][1] - ln[3][1]) ** 2)
-        sqrt_4_3 = math.sqrt((ln[3][0] - ln[2][0]) **
-                             2 + (ln[3][1] - ln[2][1]) ** 2)
+        sqrt_7_0 = math.sqrt((ln[4][0] - ln[0][0]) ** 2 + (ln[4][1] - ln[0][1]) ** 2)
+        sqrt_12_0 = math.sqrt((ln[6][0] - ln[0][0]) ** 2 + (ln[6][1] - ln[0][1]) ** 2)
+        sqrt_4_17 = math.sqrt((ln[3][0] - ln[7][0]) ** 2 + (ln[3][1] - ln[7][1]) ** 2)
+        sqrt_2_17 = math.sqrt((ln[1][0] - ln[7][0]) ** 2 + (ln[1][1] - ln[7][1]) ** 2)
+        sqrt_12_4 = math.sqrt((ln[6][0] - ln[3][0]) ** 2 + (ln[6][1] - ln[3][1]) ** 2)
+        sqrt_4_3 = math.sqrt((ln[3][0] - ln[2][0]) ** 2 + (ln[3][1] - ln[2][1]) ** 2)
 
         draw.draw_landmarks(img, hand_landmarks, hand.HAND_CONNECTIONS)
 
@@ -114,13 +108,10 @@ while cap.isOpened():
         cv2.circle(img, (i[0], i[1]), i[2], i[3], cv2.FILLED)
 
     # نمایش اطلاعات
-    cv2.putText(img, f"Size: {str(distance)}",
-                (20, 120), font, 1, (0, 255, 0), 4)
+    cv2.putText(img, f"Size: {str(distance)}", (20, 120), font, 1, (0, 255, 0), 4)
     cv2.putText(img, f"Color : {name_c}", (20, 160), font, 1, color, 4)
-    cv2.putText(img, "Press 'c' to clear", (20, 200),
-                font, 0.7, (255, 255, 255), 2)
-    cv2.putText(img, "Press 'q' to quit", (20, 230),
-                font, 0.7, (255, 255, 255), 2)
+    cv2.putText(img, "Press 'c' to clear", (20, 200), font, 0.7, (255, 255, 255), 2)
+    cv2.putText(img, "Press 'q' to quit", (20, 230), font, 0.7, (255, 255, 255), 2)
 
     cv2.imshow("WedCam", img)
 
